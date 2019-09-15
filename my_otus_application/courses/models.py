@@ -25,9 +25,12 @@ class Lesson(models.Model):
 
 
 class Course(models.Model):
-    name = models.CharField(max_length=300)
+    course_name = models.CharField(max_length=300)
     description = models.CharField(max_length=1000)
     price = models.DecimalField(decimal_places=3, max_digits=10)
-    duration = models.IntegerField()
-    teachers = models.ManyToManyField(Teacher)
-    lessons = models.ManyToManyField(Lesson)
+    duration = models.IntegerField(blank=True, null=True)
+    teachers = models.ManyToManyField(Teacher, blank=True)
+    lessons = models.ManyToManyField(Lesson, blank=True)
+
+    def __str__(self):
+        return f"{self.course_name}"
