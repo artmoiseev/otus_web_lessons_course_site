@@ -8,4 +8,5 @@ urlpatterns = [
     path('api/courses/<int:pk>/', views.CourseDetailView.as_view()),
     path('api/teachers/', views.TeacherListView.as_view()),
     path('api/lessons/', views.LessonsListView.as_view()),
+    path('api/registration/', views.RegisterUserView.as_view()),
 ]
