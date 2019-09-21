@@ -34,3 +34,5 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.course_name}"
+
+# registering new user: https://stackoverflow.com/questions/16857450/how-to-register-users-in-django-rest-framework
