@@ -1,1 +1,1 @@
-# otus_web_lesson9
+# Prototype of a site with programming courses
