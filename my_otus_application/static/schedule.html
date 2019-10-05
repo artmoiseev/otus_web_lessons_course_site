@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <script src="js/scripts.js"></script>
+
+</head>
+<body>
+<div id="wrapper" class="align-content-center">
+    <header>
+    </header>
+    <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact us</a>
+            </li>
+        </ul>
+
+    </nav>
+    <div id="heading"></div>
+    <section>
+        <label for="myInput" class="mt-2">Filter by name:</label><input type="text" id="inputField"
+                                                                        onkeyup="filterTable()"
+                                                                        placeholder="Search for names.." class="mt-2">
+
+        <table id="myTable" class="table table-striped mt-2">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Lesson name</th>
+                <th scope="col">lesson date</th>
+                <th scope="col">lesson time</th>
+                <th scope="col">Timezone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Java Core</td>
+                <td>1st of June 2019</td>
+                <td>20-00</td>
+                <td>MSK (UTC +3)</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Data structures</td>
+                <td>4st of June 2019</td>
+                <td>20-00</td>
+                <td>MSK (UTC +3)</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Java types</td>
+                <td>14st of June 2019</td>
+                <td>20-00</td>
+                <td>MSK (UTC +3)</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Algorithms</td>
+                <td>24st of June 2019</td>
+                <td>20-00</td>
+                <td>MSK (UTC +3)</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Spring for beginners</td>
+                <td>30 of June 2019</td>
+                <td>20-00</td>
+                <td>MSK (UTC +3)</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Python: inception</td>
+                <td>30 of June 2019</td>
+                <td>20-00</td>
+                <td>MSK (UTC +3)</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+</body>
+</html>
