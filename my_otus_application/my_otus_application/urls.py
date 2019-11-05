@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import RedirectView
 from graphene_django.views import GraphQLView
+from rest_framework.authtoken import views
 
 from .schema import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
-    path('', include('courses.urls'))
+    path('', include('courses.urls')),
+    path('api/auth', views.obtain_auth_token),
+    path('favicon.ico', RedirectView.as_view(url='/static/images/favicon.ico'))
 ]

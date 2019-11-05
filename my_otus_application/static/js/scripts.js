@@ -28,3 +28,23 @@ function filterTable() {
         }
     }
 }
+
+function auth_and_redirect() {
+    let username = $('#username').val();
+    let password = $('#password').val();
+    console.log(username);
+    console.log(password);
+    let auth_object = JSON.stringify({'username': username, 'password': password})
+    $.ajax({
+        type: 'POST',
+        url: '/api/auth',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: auth_object,
+        success:
+            function (xhr) {
+                alert(xhr.status)
+                window.location.href = '/static/index.html';
+            }
+    });
+}

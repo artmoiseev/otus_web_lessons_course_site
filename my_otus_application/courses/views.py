@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.template import loader
+from pytz import unicode
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -9,7 +11,9 @@ from . import serializers
 
 
 def index_view(request):
-    return HttpResponse('<h1>Hello!</h1>')
+    if request.user.is_authenticated:
+        return HttpResponse(loader.get_template("index.html").render())
+    return HttpResponse(loader.get_template("login_form.html").render())
 
 
 class CourseListView(APIView):
@@ -83,3 +87,12 @@ class RegisterUserView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class User(APIView):
+    def get(self, request, format=None):
+        content = {
+            'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+            'auth': unicode(request.auth),  # None
+        }
+        return Response(content)

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="static/js/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="mx-auto col-4 login-container">
+    <div class="row">
+        <div class="col-md-7 login-form-1 mt-4">
+            <H2>Вход</H2>
+            <h6> Для зарегистрированных пользователей</h6>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your name" value="" id="username"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Your Password" value="" id="password"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Login" onclick="auth_and_redirect()"/>
+                </div>
+                <div class="form-group">
+                    <a href="#" class="ForgetPwd">Forget Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
