@@ -17,7 +17,7 @@ function filterTable() {
     let tr = table.getElementsByTagName("tr");
 
     for (let i = 0; i < tr.length; i++) {
-        let td = tr[i].getElementsByTagName("td")[0];
+        let td = tr[i].getElementsByTagName("td")[2];
         if (td) {
             let txtValue = td.innerHTML;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -35,7 +35,7 @@ function auth_and_redirect() {
     console.log(username);
     console.log(password);
     let auth_object = JSON.stringify({'username': username, 'password': password})
-    $.ajax({
+    return $.ajax({
         type: 'POST',
         url: '/api/auth',
         contentType: 'application/json',
@@ -43,8 +43,26 @@ function auth_and_redirect() {
         data: auth_object,
         success:
             function (xhr) {
-                alert(xhr.status)
                 window.location.href = '/static/index.html';
             }
+    })
+}
+
+async function fill_lesson_page() {
+    let lessons_response = await fetch('../api/lessons/');
+    let lessons_json;
+    if (lessons_response.ok) {
+        lessons_json = await lessons_response.json();
+    }
+    lessons_json.forEach(json => {
+        $('#myTable > tbody:last-child').append(
+            '<tr>' +
+            '<th scope="row">' + json.id + '</th>' +
+            '<td>' + json.start_date.split('T')[0] + '</td>' +
+            '<td>' + json.start_date.split('T')[1] + '</td>' +
+            '<td>' + json.description + '</td>' +
+            '<td>' + json.homework + '</td>' +
+            ' </tr>'
+        );
     });
 }

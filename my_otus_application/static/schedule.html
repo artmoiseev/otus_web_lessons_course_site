@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="js/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
-<body>
+<body onload="fill_lesson_page()">
 <div id="wrapper" class="align-content-center">
     <header>
     </header>
@@ -35,61 +36,20 @@
     <section>
         <label for="myInput" class="mt-2">Filter by name:</label><input type="text" id="inputField"
                                                                         onkeyup="filterTable()"
-                                                                        placeholder="Search for names.." class="mt-2">
+                                                                        placeholder="Search for description.."
+                                                                        class="mt-2">
 
         <table id="myTable" class="table table-striped mt-2">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Lesson name</th>
                 <th scope="col">lesson date</th>
                 <th scope="col">lesson time</th>
-                <th scope="col">Timezone</th>
+                <th scope="col">lesson description</th>
+                <th scope="col">lesson homework</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Java Core</td>
-                <td>1st of June 2019</td>
-                <td>20-00</td>
-                <td>MSK (UTC +3)</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Data structures</td>
-                <td>4st of June 2019</td>
-                <td>20-00</td>
-                <td>MSK (UTC +3)</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Java types</td>
-                <td>14st of June 2019</td>
-                <td>20-00</td>
-                <td>MSK (UTC +3)</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Algorithms</td>
-                <td>24st of June 2019</td>
-                <td>20-00</td>
-                <td>MSK (UTC +3)</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Spring for beginners</td>
-                <td>30 of June 2019</td>
-                <td>20-00</td>
-                <td>MSK (UTC +3)</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Python: inception</td>
-                <td>30 of June 2019</td>
-                <td>20-00</td>
-                <td>MSK (UTC +3)</td>
-            </tr>
             </tbody>
         </table>
     </section>

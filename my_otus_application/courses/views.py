@@ -55,6 +55,13 @@ class CourseDetailView(APIView):
         return Response(data)
 
 
+class TeacherDetailView(APIView):
+    def get(self, request, pk):
+        course = get_object_or_404(models.Teacher, pk=pk)
+        serializer = serializers.TeacherSerializer(course)
+        return Response(serializer.data)
+
+
 class TeacherListView(APIView):
 
     def get(self, request):
