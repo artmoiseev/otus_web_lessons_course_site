@@ -1,0 +1,13 @@
+[run]
+include = courses/*
+omit =
+    ../*/migrations/*
+    ../*/__init__.py
+    ../*/wsgi.py
+    ../*/apps.py
+    ../*/settings.py
+    ../*/schema.py
+    ../*/tests.py
+    ../*/admin.py
+    ../*/urls.py
+    ../*/manage.py
