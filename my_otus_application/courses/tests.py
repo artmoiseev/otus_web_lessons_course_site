@@ -1,4 +1,5 @@
 from django.test import TestCase, Client
+from rest_framework import status
 
 from .models import Teacher
 
@@ -24,4 +25,21 @@ class ViewsTest(TestCase):
         for endpoint in self.api_end_points:
             with self.subTest():
                 response = self.client.get(endpoint, follow=True)
-                assert response.status_code == 200
+                assert response.status_code == status.HTTP_200_OK
+
+    def test_auth_with_valid_credentials(self):
+        credentials = {
+            "username": "user1",
+            "password": "12345"
+        }
+        response = self.client.post('/api/auth/', data=credentials, follow=True)
+        assert response.status_code == status.HTTP_200_OK
+
+    def test_auth_with_bad_credentials(self):
+        credentials = {
+            "username": "user1",
+            "password": "invalid_password"
+        }
+        response = self.client.post('/api/auth', data=credentials, follow=True)
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
+
